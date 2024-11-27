@@ -40,6 +40,7 @@ export const ChapterContent = ({ userCourse, activePart, params }) => {
   return activePart && (
     <div className='p-5'>
 
+
       <div className='p-5 border rounded-lg mt-5 justify-between'>
         <h2 className='text-4xl pb-5 mb-5 font-bold text-center border-b-2'>{activePart.name}</h2>
 

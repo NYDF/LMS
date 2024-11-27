@@ -8,28 +8,6 @@ import { useRouter } from 'next/navigation';
 function EnrollmentSection({ courseDetail, userCourse }) {
     const { user } = useUser();
     const router = useRouter();
-    // const { userMembership, setUserMembership } = useContext(UserMembershipContext);
-    // console.log("courseDetail?.totalChapters", courseDetail?.totalChapters)
-    // const enrollCourse = async () => {
-    //     if (user) {
-    //         await EnrollCourse(courseDetail.id, user.primaryEmailAddress.emailAddress)
-    //             .then(async (resp) => {
-    //                 console.log("EnrollCourseResp=>", resp);
-    //                 if (resp) {
-    //                     await PublishCourse(resp?.createUserEnrollCourse?.id).then(result => {
-    //                         console.log(result);
-    //                         if (result) {
-    //                             courseDetail.totalChapters ? router.push('/view-course/' + courseDetail.id)
-    //                             : window.location.reload();
-    //                         }
-    //                     })
-    //                 }
-    //             })
-    //     }
-    //     else {
-    //         router.push('/sign-in');
-    //     }
-    // }
 
     const enrollCourse = async () => {
         if (user) {
@@ -42,7 +20,7 @@ function EnrollmentSection({ courseDetail, userCourse }) {
                             console.log('66666666666666666666', result);
                             if (result) {
                                 courseDetail.totalChapters ? router.push('/view-course/' + courseDetail.id)
-                                : window.location.reload();
+                                    : window.location.reload();
                             }
                         })
                     }
@@ -52,41 +30,39 @@ function EnrollmentSection({ courseDetail, userCourse }) {
             router.push('/sign-in');
         }
     }
+
+    // console.log('EnrollmentSection', courseDetail, userCourse)
+    
     return (
         <div>
 
             {userCourse?.courseId ?
                 <div className='mt-5 border rounded-lg p-4 text-center'>
-                    <h2 className='text-gray-500 '>您已购买本课程，请继续努力学习~</h2>
+                    <h2 className='text-gray-500 '>您已购买本课程，请继续学习~</h2>
                     <button
                         className='p-2 w-full bg-purple-500 text-white rounded-lg text-[14px] mt-2 hover:bg-purple-700'
                         onClick={() => courseDetail?.totalChapters
                             ? router.push('/view-course/' + courseDetail.id) : window.location.reload()}>
-                        继续学习
+                        进入课程
                     </button>
                 </div>
                 :
                 <div className='mt-5 border rounded-lg p-4 text-center'>
-                    <h2 className='text-gray-500'>这么好的课程肯定心动了吧？</h2>
-                    <button
-                        className='p-2 w-full bg-purple-500 text-white rounded-lg text-[14px] mt-2 hover:bg-purple-700'
-                        onClick={() => enrollCourse()}>
-                        购买课程
-                    </button>
+                    <h2 className='text-gray-500'>本优质课程仅需：</h2>
+                    {courseDetail ? (
+                        <button
+                            className="p-2 w-full bg-orange-700 text-white rounded-lg text-[16px] mt-2 hover:bg-green-500"
+                            onClick={() => enrollCourse()}
+                        >
+                            <h2 className="text-[18px]">
+                                {courseDetail.free ? '本课程完全免费' : `$ ${courseDetail.price || 0}`}
+                            </h2>
+                        </button>
+                    ) : (
+                        <div>Loading...</div> // Placeholder while courseDetail is undefined
+                    )}
                 </div>
             }
-
-            {/* {courseDetail.free || !userCourse?.courseId ?
-                <div className='mt-5 border rounded-lg p-4 text-center'>
-                    <h2 className='text-gray-500'>这么好的课程肯定心动了吧？</h2>
-                    <button
-                        className='p-2 w-full bg-purple-500 text-white rounded-lg text-[14px] mt-2 hover:bg-purple-700'
-                        onClick={() => enrollCourse()}>
-                        购买课程
-                    </button>
-                </div>
-                : null} */}
-
         </div>
     )
 }

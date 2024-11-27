@@ -6,7 +6,6 @@ import CourseDetails from './_components/CourseDetails'
 import OptionSection from './_components/OptionSection'
 import EnrollmentSection from './_components/EnrollmentSection'
 import { useUser } from '@clerk/nextjs'
-import Image from 'next/image'
 
 function CoursePreview({ params }) {
   const [courseDetail, setCourseDetails] = useState([]);

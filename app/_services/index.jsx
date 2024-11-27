@@ -1,8 +1,6 @@
 import request, { gql } from "graphql-request"
 
-// const MASTER_URL = process.env.local.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
-
-const MASTER_URL = "https://us-west-2.cdn.hygraph.com/content/cm35rq489009n07v1xeea103s/master"
+const MASTER_URL = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 
 export const getCourseList = async () => {
@@ -19,11 +17,6 @@ export const getCourseList = async () => {
             ... on Part {
               id
               name
-              content {
-                text
-                json
-                markdown
-              }
             }
           }
         }
@@ -38,6 +31,7 @@ export const getCourseList = async () => {
       tag
       sourceCode
       totalChapters
+      price
     }
   }
     `
@@ -48,53 +42,51 @@ export const getCourseList = async () => {
 
 export const getCourseById = async (id, userEmail) => {
   const query = gql`
-query course {
-  courseList(where: {id: "` + id + `"}) {
-    free
-    description
-    catalog
-    name
-    totalChapters
-    banner {
-      url
-    }
-    video {
-      url
-    }
-    chapter {
-      ... on Chapter {
-        id
+    query course {
+      courseList(where: {id: "` + id + `"}) {
+        free
+        description
+        catalog
         name
-        allParts {
-          ... on Part {
+        totalChapters
+        banner {
+          url
+        }
+        video {
+          url
+        }
+        chapter {
+          ... on Chapter {
             id
             name
-            content {
-               raw
-               html
-               markdown
-               text
+            allParts {
+              ... on Part {
+                id
+                name
+                content {
+                   raw
+                }
+              }
             }
+          }
+        }
+        id
+        author
+        price
+      }
+        userEnrollCourses(where: {courseId: "` + id + `", userEmail: "` + userEmail + `"}) {
+          courseId
+          userEmail
+          id
+          completedChapter {
+            ... on CompletedChapter {
+              id
+              chapterId
+              partId
           }
         }
       }
     }
-    id
-    author
-  }
-    userEnrollCourses(where: {courseId: "` + id + `", userEmail: "` + userEmail + `"}) {
-      courseId
-      userEmail
-      id
-      completedChapter {
-        ... on CompletedChapter {
-          id
-          chapterId
-          partId
-      }
-    }
-  }
-}
   `
   const result = await request(MASTER_URL, query);
   return result;
@@ -188,6 +180,7 @@ export const GetUserCourseList = async (userEmail) => {
           name
           tag
           totalChapters
+          price
         }
       }
     }

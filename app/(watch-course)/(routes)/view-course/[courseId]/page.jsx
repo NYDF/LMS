@@ -5,7 +5,7 @@ import { UserButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getCourseById } from '../../../../_services';
-import {CompletedChapterContext} from '../../../../../app/_context/CompletedChapterContext'
+import { CompletedChapterContext } from '../../../../../app/_context/CompletedChapterContext'
 
 function ViewCourse({ params }) {
   const { user } = useUser();
@@ -31,34 +31,35 @@ function ViewCourse({ params }) {
   return (
     <div className=''>
 
-      <CompletedChapterContext.Provider value={{completedChapter,setCompletedChapter}}>
-      <div className='hidden fixed md:block md:w-80 border  shadow-sm h-screen z-50'>
+      <CompletedChapterContext.Provider value={{ completedChapter, setCompletedChapter }}>
+        <div className='hidden fixed md:block md:w-80 border  shadow-sm h-screen z-50'>
 
-        <div className='p-5 border-b z-50'>
-          <Link href='/'>
-            <Image src='/logo.png'
-              alt='logo'
-              className='rounded-full'
-              width={90}
-              height={90}
-            />
-          </Link>
+          <div className='p-5 border-b z-50'>
+            <Link href='/'>
+              <Image src='/logo.png'
+                alt='logo'
+                className='rounded-full'
+                width={90}
+                height={90}
+                priority={true}
+              />
+            </Link>
+          </div>
+
+          {course ? <ChapterNav
+            params={params}
+            course={course}
+            userCourse={userCourse} />
+            : null}
+
         </div>
 
-        {course ? <ChapterNav
-          params = {params}
-          course = {course}
-          userCourse={userCourse} />
-          : null}
+        <div className='md:ml-80'>
+          <div className='float-right p-5 '>
+            <UserButton />
+          </div>
 
-      </div>
-
-      <div className='md:ml-80'>
-        <div className='float-right p-5 '>
-          <UserButton />
         </div>
-
-      </div>
       </CompletedChapterContext.Provider>
     </div>
   )

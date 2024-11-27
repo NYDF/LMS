@@ -1,5 +1,5 @@
 "use client"
-import { Layout, Mail, Search, Shield } from 'lucide-react'
+import { Layout, Search } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -35,6 +35,7 @@ function SideBarNav({ toggleSideBar }) {
                         className='rounded-full'
                         width={90}
                         height={90}
+                        priority={true}
                     />
                 </Link>
             </div>

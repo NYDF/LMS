@@ -47,6 +47,7 @@ function ViewChapter({ params }) {
                 className='rounded-full'
                 width={100}
                 height={80}
+                priority={true}
               />
             </Link>
           </div>
@@ -67,11 +68,16 @@ function ViewChapter({ params }) {
         </div>
 
         <div className="flex-grow border shadow-sm p-4 h-full overflow-y-auto">
+          <div className='float-right p-5 m-6'>
+            <UserButton />
+          </div>
+
           <ChapterContent
             course={course}
             userCourse={userCourse}
             params={params}
             activePart={activePart} />
+
         </div>
 
       </CompletedChapterContext.Provider>
