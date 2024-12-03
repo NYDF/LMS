@@ -1,22 +1,19 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { UserButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import ChapterNav from '../_components/ChapterNav';
-import { ChapterContent } from '../_components/ChapterContent';
-import { getCourseById } from '../../../../../_services';
-import PartNav from '../_components/PartNav';
-import { CompletedChapterContext } from '../../../../../_context/CompletedChapterContext'
+import ChapterNav from '../_components/ChapterNav'
+import { getCourseById } from '@/app/_services'
+import { CompletedChapterContext } from '@/app/_context/CompletedChapterContext'
+import { TestContent } from '../_components/TestContent'
 
-function ViewChapter({ params }) {
 
-  const chapterId = params.chapterId
+function TestPage({ params }) {
 
   const { user } = useUser();
   const [course, setCourse] = useState([]);
   const [userCourse, setUserCourse] = useState();
-  const [activePart, setActivePart] = useState();
   const [completedChapter, setCompletedChapter] = useState();
 
   useEffect(() => {
@@ -32,12 +29,9 @@ function ViewChapter({ params }) {
       })
   }
 
-
   return (
     <div className='flex h-screen'>
-
       <CompletedChapterContext.Provider value={{ completedChapter, setCompletedChapter }}>
-
         <div className="w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto hidden md:block">
 
           <div className='p-5 border-b z-50'>
@@ -55,34 +49,26 @@ function ViewChapter({ params }) {
           <ChapterNav
             params={params}
             course={course}
-            userCourse={userCourse} />
-
-        </div>
-
-        <div className="w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto hidden sm:block">
-          <PartNav
-            course={course}
             userCourse={userCourse}
-            params={params}
-            setActivePart={(part) => setActivePart(part)} />
+          />
+
         </div>
+
+
 
         <div className="flex-grow border shadow-sm p-4 h-full overflow-y-auto">
           <div className='float-right p-5 m-6'>
             <UserButton />
           </div>
 
-          <ChapterContent
+          <TestContent
             course={course}
             userCourse={userCourse}
-            params={params}
-            activePart={activePart} />
-
+            params={params} />
         </div>
 
       </CompletedChapterContext.Provider>
-
-    </div>
+    </div >
   )
 
 
@@ -90,4 +76,4 @@ function ViewChapter({ params }) {
 
 }
 
-export default ViewChapter
+export default TestPage

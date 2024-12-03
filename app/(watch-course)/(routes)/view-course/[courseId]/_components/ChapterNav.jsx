@@ -1,6 +1,5 @@
 import { CheckCircle2, PauseCircle, PlayCircle } from 'lucide-react'
-import React, { useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation';
+import React, { useContext, useState } from 'react'
 import Link from 'next/link'
 import { CompletedChapterContext } from '../../../../../_context/CompletedChapterContext';
 
@@ -9,8 +8,6 @@ function ChapterNav({ params, course, userCourse }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const { completedChapter, setCompletedChapter } = useContext(CompletedChapterContext)
-
-    const router = useRouter();
 
     // console.log('ChapterNav~~~~~~~~~~~~~~~~~~~', course)
 
@@ -27,9 +24,8 @@ function ChapterNav({ params, course, userCourse }) {
                 <h2 className='text-gray-500 text-[14px]'>By {course.author}</h2>
             </div>
 
-            <div className='overflow-auto  h-[600px]'>
+            <div className='overflow-auto  h-[800px]'>
                 {course?.chapter?.map((chapter, index) => (
-
                     <Link href={'/view-course/' + course.id + '/' + chapter.id} key={index} >
                         <div key={index}
                             className={`flex gap-2 text-gray-500 md:text-[14px] text-[12px] px-5 p-4 cursor-pointer hover:bg-gray-100
@@ -43,11 +39,16 @@ function ChapterNav({ params, course, userCourse }) {
                             <h2 className='line-clamp-2'>{chapter.name}</h2>
                         </div>
                     </Link>
-
-
                 ))}
-            </div>
 
+                <Link href={'/view-course/' + course.id + '/' + '/test/'}>
+                    <div className="text-gray-500 md:text-[14px] text-[16px] px-5 p-4 cursor-pointer hover:bg-gray-100 line-clamp-2 flex items-center space-x-2">
+                        <CheckCircle2 height={25} width={25} />
+                        <span>结业考试</span>
+                    </div>
+                </Link>
+
+            </div>
         </div>
     )
 

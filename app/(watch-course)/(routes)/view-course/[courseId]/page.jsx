@@ -55,6 +55,13 @@ function ViewCourse({ params }) {
         </div>
 
         <div className='md:ml-80'>
+
+          <div className="mx-5 p-5 border rounded-lg flex justify-center items-center text-center">
+            <span className="text-2xl font-bold">
+              请选择想要学习的章节
+            </span>
+          </div>
+
           <div className='float-right p-5 '>
             <UserButton />
           </div>

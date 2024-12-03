@@ -2,6 +2,9 @@ import { Book } from 'lucide-react'
 import React from 'react'
 
 function CourseDetails({ courseDetail }) {
+
+  // console.log(courseDetail)
+
   return (
     <div className='mt-5 p-5 rounded-lg border'>
 

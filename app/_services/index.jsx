@@ -72,6 +72,20 @@ export const getCourseById = async (id, userEmail) => {
         }
         id
         author
+        exam {
+          ... on Exam {
+            id
+            choice {
+              ... on Choice {
+                id
+                choiceText
+                isCorrect
+              }
+            }
+            type
+            questionText
+          }
+        }
         price
       }
         userEnrollCourses(where: {courseId: "` + id + `", userEmail: "` + userEmail + `"}) {
