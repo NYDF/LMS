@@ -80,10 +80,12 @@ export const getCourseById = async (id, userEmail) => {
                 id
                 choiceText
                 isCorrect
+                choiceNumber
               }
             }
             type
             questionText
+            correctAnswerNumber
           }
         }
         price
@@ -91,6 +93,7 @@ export const getCourseById = async (id, userEmail) => {
         userEnrollCourses(where: {courseId: "` + id + `", userEmail: "` + userEmail + `"}) {
           courseId
           userEmail
+          examResult
           id
           completedChapter {
             ... on CompletedChapter {
