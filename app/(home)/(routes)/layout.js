@@ -10,28 +10,7 @@ function homeLayout({ children }) {
   const [toggleSideBar, setToggleSideBar] = useState(false);
 
   const { user } = useUser();
-  // const { userMembership, setUserMembership }
-  //   = useContext(UserMembershipContext);
-  // useEffect(() => {
-  //   user && getUserSubscription_(1);
-  // }, [user])
-  // const getUserSubscription_ = (pageNumber = 1) => {
-  //   GlobalApi.getUserSubscription(pageNumber)
-  //     .then(resp => {
-  //       const data = resp.data.data.find(item => item.payer_email == user.primaryEmailAddress.emailAddress);
-  //       if (data) {
-  //         console.log(" Membership")
-  //         setUserMembership(true)
-  //       }
-  //       else {
-  //         console.log("DATA", pageNumber, resp.data.last_page)
-  //         if (resp?.data?.last_page >= pageNumber + 1) {
-  //           console.log(" No Membership")
-  //           getUserSubscription_(pageNumber + 1)
-  //         }
-  //       }
-  //     })
-  // }
+
   return (
     <div>
       {toggleSideBar ? <div className='h-full w-64 md:flex flex-col fixed

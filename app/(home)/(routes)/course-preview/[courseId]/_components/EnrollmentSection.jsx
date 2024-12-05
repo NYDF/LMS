@@ -11,13 +11,13 @@ function EnrollmentSection({ courseDetail, userCourse }) {
 
     const enrollCourse = async () => {
         if (user) {
-            // console.log('111111111111111111', courseDetail.id, user.primaryEmailAddress.emailAddress);
+
             await EnrollCourse(courseDetail.id, user.primaryEmailAddress.emailAddress)
                 .then(async (resp) => {
-                    // console.log("2222222222222222222222=>", resp);
+
                     if (resp) {
                         await PublishCourse(resp?.createUserEnrollCourse?.id).then(result => {
-                            console.log('66666666666666666666', result);
+
                             if (result) {
                                 courseDetail.totalChapters ? router.push('/view-course/' + courseDetail.id)
                                     : window.location.reload();
@@ -31,8 +31,7 @@ function EnrollmentSection({ courseDetail, userCourse }) {
         }
     }
 
-    // console.log('EnrollmentSection', courseDetail, userCourse)
-    
+
     return (
         <div>
 

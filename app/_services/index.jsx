@@ -90,6 +90,7 @@ export const getCourseById = async (id, userEmail) => {
         }
         price
       }
+
         userEnrollCourses(where: {courseId: "` + id + `", userEmail: "` + userEmail + `"}) {
           courseId
           userEmail
@@ -106,6 +107,7 @@ export const getCourseById = async (id, userEmail) => {
     }
   `
   const result = await request(MASTER_URL, query);
+
   return result;
 }
 
@@ -133,13 +135,14 @@ export const EnrollCourse = async (courseId, userEmail) => {
 
 export const PublishCourse = async (id) => {
   const mutationQuery = gql`
-mutation EnrollCourse {
-  publishUserEnrollCourse(where: {id: "`+ id + `"})
-  {
-    id
-  }
-}
-`
+    mutation EnrollCourse {
+      publishUserEnrollCourse(where: {id: "`+ id + `"})
+      {
+        id
+      }
+    }
+  `
+
   const result = await request(MASTER_URL, mutationQuery);
   return result;
 }
@@ -206,3 +209,35 @@ export const GetUserCourseList = async (userEmail) => {
   return result;
 
 }
+
+
+export const submitTestRes = async (courseRecordId, answersToTest) => {
+  const mutationQuery = gql`
+    mutation submitTestRes($id: ID!, $examResult: Json!) {
+      updateUserEnrollCourse(
+        data: { examResult: $examResult }
+        where: { id: $id }
+      ) {
+        id
+        examResult
+      }
+
+      publishManyUserEnrollCoursesConnection(to: PUBLISHED) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+        
+    }
+  `;
+
+  const variables = {
+    id: courseRecordId,
+    examResult: answersToTest, // Pass the answers directly as JSON
+  };
+
+  const result = await request(MASTER_URL, mutationQuery, variables);
+  return result;
+};

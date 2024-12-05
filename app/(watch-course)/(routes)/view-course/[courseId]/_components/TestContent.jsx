@@ -1,11 +1,12 @@
+
 import { CheckCircle2, CircleX } from 'lucide-react';
 import { useState } from "react";
 import { TestResult } from './TestResult';
 import { TestTake } from './TestTake';
 
 export const TestContent = ({ userCourse, course, params }) => {
-  console.log("testcontent~~~~~~~~userCourse", userCourse);
-  console.log("testcontent~~~~~~~~course", course);
+
+  // console.log('TestContent+++++++++++++userCourse', userCourse?.examResult)
 
   const hasCompletedExam = userCourse?.examResult && userCourse.examResult.length === course.exam?.length;
 
@@ -21,7 +22,7 @@ export const TestContent = ({ userCourse, course, params }) => {
     );
   }
 
-  
+
   // Render exam result page when the user has completed the exam
   return (
     <TestResult

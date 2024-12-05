@@ -2,6 +2,8 @@ import { CheckCircle2, CircleX } from 'lucide-react';
 
 export const TestResult = ({ userCourse, course }) => {
 
+  console.log('TestResult-----------userCourse', userCourse)
+  console.log('TestResult-----------course', course)
   // Render exam result page when the user has completed the exam
   return (
     <div className="p-5 border rounded-lg mt-5 justify-between">
@@ -11,7 +13,12 @@ export const TestResult = ({ userCourse, course }) => {
 
       {course.exam && course.exam.length > 0 ? (
         course.exam.map((examItem, index) => {
-          const userAnswer = userCourse.examResult[index]; // Get the user's answer
+          // Find the matching exam result by ID
+          const result = userCourse.examResult.find(
+            (examResultItem) => examResultItem.id === examItem.id
+          );
+
+          const userAnswer = result?.answer; // Get the user's answer
           const correctAnswer = examItem.correctAnswerNumber; // Correct answer number
           const isCorrect = userAnswer === correctAnswer; // Check if the user's answer is correct
 
@@ -35,8 +42,8 @@ export const TestResult = ({ userCourse, course }) => {
                         : isCorrectChoice
                           ? "bg-green-100"
                           : ""
-                        }`}>
-
+                        }`}
+                    >
                       <div className="w-6 flex justify-center items-center">
                         {isUserChoice ? (
                           isCorrect ? (
@@ -51,8 +58,6 @@ export const TestResult = ({ userCourse, course }) => {
                         )}
                       </div>
 
-                      <span className="font-bold text-gray-700">O</span>
-
                       <span>{choiceItem.choiceText}</span>
                     </div>
                   );
@@ -65,5 +70,7 @@ export const TestResult = ({ userCourse, course }) => {
         <p className="text-gray-500">No exam questions available.</p>
       )}
     </div>
+
+
   );
 };

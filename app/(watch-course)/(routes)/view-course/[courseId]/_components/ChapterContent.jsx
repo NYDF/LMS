@@ -9,7 +9,7 @@ export const ChapterContent = ({ userCourse, activePart, params }) => {
 
   const chapterId = params.chapterId
 
-  // console.log('ChapterContent++++++completedChapter', completedChapter)
+  console.log('ChapterContent++++++completedChapter', userCourse)
   // console.log('ChapterContent------activePart', activePart?.content)
 
   const isPartCompleted = (chapterId, partId) => {
