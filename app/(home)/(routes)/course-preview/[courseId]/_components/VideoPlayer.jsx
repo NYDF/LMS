@@ -1,6 +1,7 @@
 import React from 'react'
 
 function VideoPlayer({ videoUrl }) {
+  
   return (
     <div className='border rounded-lg p-3'>
 

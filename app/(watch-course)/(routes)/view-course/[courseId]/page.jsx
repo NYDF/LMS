@@ -20,7 +20,7 @@ function ViewCourse({ params }) {
   const getCourse = async () => {
     await getCourseById(params?.courseId,
       user.primaryEmailAddress.emailAddress).then(resp => {
-        // console.log('ViewCourse1111111111111', resp);
+
         setCourse(resp.courseList);
         setUserCourse(resp?.userEnrollCourses[0]);
         setCompletedChapter(resp?.userEnrollCourses[0]?.completedChapter)

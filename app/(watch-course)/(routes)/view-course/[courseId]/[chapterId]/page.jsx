@@ -11,8 +11,6 @@ import { CompletedChapterContext } from '../../../../../_context/CompletedChapte
 
 function ViewChapter({ params }) {
 
-  const chapterId = params.chapterId
-
   const { user } = useUser();
   const [course, setCourse] = useState([]);
   const [userCourse, setUserCourse] = useState();

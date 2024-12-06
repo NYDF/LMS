@@ -3,8 +3,6 @@ import React from 'react'
 
 function CourseDetails({ courseDetail }) {
 
-  // console.log(courseDetail)
-
   return (
     <div className='mt-5 p-5 rounded-lg border'>
 
@@ -31,14 +29,14 @@ function CourseDetails({ courseDetail }) {
         </h2>
       </div>
 
-<div className="mt-2 mx-9 ">
-      <h2 className="text-[16px] text-gray-600 ">
-        <div className="grid grid-cols-2 gap-2 ">
-          {courseDetail.catalog.map((catalog, index) => (
-            <div className="border-l-2" key={index}>{catalog}</div>
-          ))}
-        </div>
-      </h2>
+      <div className="mt-2 mx-9 ">
+        <h2 className="text-[16px] text-gray-600 ">
+          <div className="grid grid-cols-2 gap-2 ">
+            {courseDetail.catalog.map((catalog, index) => (
+              <div className="border-l-2" key={index}>{catalog}</div>
+            ))}
+          </div>
+        </h2>
       </div>
 
     </div>

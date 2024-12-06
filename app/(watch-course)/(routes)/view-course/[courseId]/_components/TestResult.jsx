@@ -2,8 +2,6 @@ import { CheckCircle2, CircleX } from 'lucide-react';
 
 export const TestResult = ({ userCourse, course }) => {
 
-  // console.log('TestResult-----------userCourse', userCourse)
-  // console.log('TestResult-----------course', course)
   // Render exam result page when the user has completed the exam
   return (
     <div className="p-5 border rounded-lg mt-5 justify-between">

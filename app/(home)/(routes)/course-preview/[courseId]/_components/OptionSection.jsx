@@ -1,9 +1,8 @@
 import Image from 'next/image'
-import { useRouter } from 'next/navigation';
 import React from 'react'
 
 
-function OptionSection(courseDetail) {
+function OptionSection() {
     const optionsList = [
         {
             id: 1,
@@ -21,32 +20,34 @@ function OptionSection(courseDetail) {
             // url: 'youtubeUrl'
         },
     ]
-    const router = useRouter();
+
 
     return (
         <div>
-            <div>我们的背书</div>
+
+            <div class="text-center text-xl font-bold my-4">
+                我们的背书
+            </div>
+
             <div className='flex items-center gap-3'>
+
                 {optionsList.map((option, index) => (
-                    <div key={index}
-                        className='p-2 border rounded-lg flex flex-col
-                                   items-center w-full cursor-pointer'
-                        onClick={() =>
-                            !userMembership
-                                ? router.push('/membership')
-                                : window.open(courseDetail.courseDetail
-                                [option.url])}
-                    >
+                    <div key={index} className='p-2 border rounded-lg flex flex-col items-center w-full cursor-pointer' >
+
                         {/* <Image src={option.icon}
                             width={30}
                             height={30}
                             alt='icons'
                             priority={true}
                         /> */}
-                        <h2 className='text-[14px]
-                texr-gray-500'>{option.name}</h2>
+
+                        <h2 className='text-[14px] texr-gray-500'>
+                            {option.name}
+                        </h2>
+
                     </div>
                 ))}
+
             </div>
         </div>
     )

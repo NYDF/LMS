@@ -1,9 +1,9 @@
 import React from 'react'
 
-function WatchChapterLayout({children}) {
+function WatchChapterLayout({ children }) {
   return (
     <div>
-        {children}
+      {children}
     </div>
   )
 }

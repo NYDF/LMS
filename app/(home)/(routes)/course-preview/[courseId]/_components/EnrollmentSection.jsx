@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { EnrollCourse, PublishCourse } from '../../../../../_services'
 import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation';
 
-// import { UserMembershipContext } from '../../../../../_context/UserMembershipContext';
 
 function EnrollmentSection({ courseDetail, userCourse }) {
+
     const { user } = useUser();
     const router = useRouter();
 

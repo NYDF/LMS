@@ -6,17 +6,19 @@ import { useRouter } from 'next/navigation';
 import { AlignLeft } from 'lucide-react';
 
 function Header({ toggleSideBar }) {
+
   const { user } = useUser();
   const router = useRouter();
 
-  useEffect(() => {
+  useEffect(() => { }, [user])
 
-  }, [user])
 
   return (
     <div className='md:ml-64 p-6 border-b
-    flex items-center justify-between'>
+                    flex items-center justify-between'>
+
       <AlignLeft className='md:hidden' onClick={() => toggleSideBar(true)} />
+
       <SearchBar />
 
       {!user ?

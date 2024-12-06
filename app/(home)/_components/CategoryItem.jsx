@@ -3,6 +3,11 @@ import Image from 'next/image'
 import React from 'react'
 
 function CategoryItem({ course }) {
+
+  if (!course || !course.banner) {
+    return null;
+  }
+
   return (
     <div>
       <div className='border rounded-lg p-3 cursor-pointer hover:border-green-600'>
@@ -43,7 +48,7 @@ function CategoryItem({ course }) {
           </div> : null}
 
           <h2 className="mt-2 text-[18px] text-orange-900">
-            {course?.free ? '本课程完全免费'  : `$ ${course.price}`}
+            {course?.free ? '本课程完全免费' : `$ ${course.price}`}
           </h2>
 
         </div>

@@ -41,7 +41,7 @@ function ChapterNav({ params, course, userCourse }) {
                     </Link>
                 ))}
 
-                <Link href={'/view-course/' + course.id + '/' + '/test/'}>
+                <Link href={'/view-course/' + course.id + '/test/'}>
                     <div className="text-gray-500 md:text-[14px] text-[16px] px-5 p-4 cursor-pointer hover:bg-gray-100 line-clamp-2 flex items-center space-x-2">
                         <CheckCircle2 height={25} width={25} />
                         <span>结业考试</span>

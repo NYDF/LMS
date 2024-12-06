@@ -1,5 +1,5 @@
 "use client"
-import { Layout, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -7,20 +7,20 @@ import React, { useState } from 'react'
 
 function SideBarNav({ toggleSideBar }) {
     const pathName = usePathname();
-    // console.log(pathName)
+
     const menuList = [
         {
             id: 1,
-            name: 'Browse',
+            name: '课程浏览',
             icon: Search,
             path: '/browse'
         },
-        {
-            id: 2,
-            name: 'Dashboard',
-            icon: Layout,
-            path: '/dashboard'
-        },
+        // {
+        //     id: 2,
+        //     name: 'Dashboard',
+        //     icon: Layout,
+        //     path: '/dashboard'
+        // },
     ]
     const [activeIndex, setActiveIndex] = useState(0);
 

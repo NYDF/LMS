@@ -1,5 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
+
 export default function Page() {
+
   return (
     <div className="flex justify-center items-center flex-col">
 
@@ -31,11 +33,11 @@ export default function Page() {
               </a>
 
               <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-                Welcome LMS 🦑
+                请登录账号
               </h2>
 
               <p className="mt-4 leading-relaxed text-white/90">
-                Now You can Learn , Track your progress inside this application.
+                现在你可以继续学习了
               </p>
             </div>
           </section>
@@ -66,12 +68,11 @@ export default function Page() {
                 <h1
                   className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
                 >
-                  Welcome to Squid 🦑
+                  欢迎回来
                 </h1>
 
                 <p className="mt-4 leading-relaxed text-gray-500">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-                  nam dolorum aliquam, quibusdam aperiam voluptatum.
+                  请开始你的学习
                 </p>
               </div>
 
