@@ -32,7 +32,7 @@ function ViewCourse({ params }) {
     <div className=''>
 
       <CompletedChapterContext.Provider value={{ completedChapter, setCompletedChapter }}>
-        <div className='hidden fixed md:block md:w-80 border  shadow-sm h-screen z-50'>
+        <div className='hidden fixed md:block md:w-80 border  shadow-sm h-[calc(100vh-80px)] z-50'>
 
           <div className='p-5 border-b z-50'>
             <Link href='/'>

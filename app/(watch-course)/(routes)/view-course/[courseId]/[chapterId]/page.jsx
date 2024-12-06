@@ -65,7 +65,7 @@ function ViewChapter({ params }) {
             setActivePart={(part) => setActivePart(part)} />
         </div>
 
-        <div className="flex-grow border shadow-sm p-4 h-full overflow-y-auto">
+        <div className="flex-grow border shadow-sm p-4 h-[calc(100vh-80px)] overflow-y-auto">
           <div className='float-right p-5 m-6'>
             <UserButton />
           </div>
