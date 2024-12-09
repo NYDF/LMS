@@ -24,7 +24,7 @@ function ChapterNav({ params, course, userCourse }) {
                 <h2 className='text-gray-500 text-[14px]'>By {course.author}</h2>
             </div>
 
-            <div className='overflow-auto  h-[800px]'>
+            <div className='overflow-auto '>
                 {course?.chapter?.map((chapter, index) => (
                     <Link href={'/view-course/' + course.id + '/' + chapter.id} key={index} >
                         <div key={index}

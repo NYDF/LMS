@@ -35,7 +35,7 @@ function PartNav({ course, userCourse, setActivePart, params }) {
         </h2>
       </div>
 
-      <div className='overflow-auto  h-[600px]'>
+      <div className='overflow-auto'>
         {course?.chapter?.find(chapter => chapter.id === chapterId)?.allParts?.map((part, index) => (
           <div key={index}
             onClick={() => { setActiveIndex(index); setActivePart(part) }}

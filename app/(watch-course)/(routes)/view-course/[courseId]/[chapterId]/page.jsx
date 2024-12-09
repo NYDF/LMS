@@ -9,6 +9,7 @@ import { getCourseById } from '../../../../../_services';
 import PartNav from '../_components/PartNav';
 import { CompletedChapterContext } from '../../../../../_context/CompletedChapterContext'
 
+
 function ViewChapter({ params }) {
 
   const { user } = useUser();
@@ -16,6 +17,7 @@ function ViewChapter({ params }) {
   const [userCourse, setUserCourse] = useState();
   const [activePart, setActivePart] = useState();
   const [completedChapter, setCompletedChapter] = useState();
+  const [isNavOpen, setIsNavOpen] = useState(true);
 
   useEffect(() => {
     user ? getCourse() : null;
@@ -36,7 +38,8 @@ function ViewChapter({ params }) {
 
       <CompletedChapterContext.Provider value={{ completedChapter, setCompletedChapter }}>
 
-        <div className="w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto hidden md:block">
+        <div className="hidden lg:block xl:block w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto">
+
 
           <div className='p-5 border-b z-50'>
             <Link href='/'>
@@ -57,7 +60,8 @@ function ViewChapter({ params }) {
 
         </div>
 
-        <div className="w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto hidden sm:block">
+        <div className="hidden lg:block xl:block w-60 flex-shrink-0 border shadow-sm h-full overflow-y-auto">
+
           <PartNav
             course={course}
             userCourse={userCourse}
@@ -70,6 +74,46 @@ function ViewChapter({ params }) {
             <UserButton />
           </div>
 
+          <div className="lg:hidden xl:hidden">
+            <div className='p-5 border-b z-50'>
+              <Link href='/'>
+                <Image src='/logo.png'
+                  alt='logo'
+                  className='rounded-full'
+                  width={100}
+                  height={80}
+                  priority={true}
+                />
+              </Link>
+            </div>
+
+            <div className="pl-5 pt-5">
+              <button
+                onClick={() => setIsNavOpen((prev) => !prev)}
+                className="bg-customGreen text-white p-2 rounded-md shadow-md">
+                {isNavOpen ? '关闭章节导航' : '打开章节导航'}
+              </button>
+            </div>
+
+            {isNavOpen && (
+              <div className="sm:flex md:flex lg:hidden xl:hidden">
+
+                <ChapterNav
+                  params={params}
+                  course={course}
+                  userCourse={userCourse} />
+
+                <div className="w-px bg-gray-300 mx-4"></div>
+                <PartNav
+                  course={course}
+                  userCourse={userCourse}
+                  params={params}
+                  setActivePart={(part) => setActivePart(part)} />
+                <div className="w-px bg-gray-300 mx-4"></div>
+              </div>
+            )}
+          </div>
+
           <ChapterContent
             course={course}
             userCourse={userCourse}
@@ -78,9 +122,9 @@ function ViewChapter({ params }) {
 
         </div>
 
-      </CompletedChapterContext.Provider>
+      </CompletedChapterContext.Provider >
 
-    </div>
+    </div >
   )
 
 
