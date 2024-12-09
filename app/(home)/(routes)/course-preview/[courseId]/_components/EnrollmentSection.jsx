@@ -39,7 +39,7 @@ function EnrollmentSection({ courseDetail, userCourse }) {
                 <div className='mt-5 border rounded-lg p-4 text-center'>
                     <h2 className='text-gray-500 '>您已购买本课程，请继续学习~</h2>
                     <button
-                        className='p-2 w-full bg-purple-500 text-white rounded-lg text-[14px] mt-2 hover:bg-purple-700'
+                        className='p-2 w-full bg-customBorder text-white rounded-lg text-[14px] mt-2 hover:bg-customGreen'
                         onClick={() => courseDetail?.totalChapters
                             ? router.push('/view-course/' + courseDetail.id) : window.location.reload()}>
                         进入课程
@@ -50,7 +50,7 @@ function EnrollmentSection({ courseDetail, userCourse }) {
                     <h2 className='text-gray-500'>本优质课程仅需：</h2>
                     {courseDetail ? (
                         <button
-                            className="p-2 w-full bg-orange-700 text-white rounded-lg text-[16px] mt-2 hover:bg-green-500"
+                            className='p-2 w-full bg-customBorder text-white rounded-lg text-[14px] mt-2 hover:bg-customGreen'
                             onClick={() => enrollCourse()}
                         >
                             <h2 className="text-[18px]">

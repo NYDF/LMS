@@ -28,9 +28,8 @@ function ChapterNav({ params, course, userCourse }) {
                 {course?.chapter?.map((chapter, index) => (
                     <Link href={'/view-course/' + course.id + '/' + chapter.id} key={index} >
                         <div key={index}
-                            className={`flex gap-2 text-gray-500 md:text-[14px] text-[12px] px-5 p-4 cursor-pointer hover:bg-gray-100
-                                       ${isChapterCompleted(chapter.chapterNumber) && activeIndex != index ? 'bg-purple-100 text-purple-600' : null}
-                                       ${selectedChapterId == chapter.id ? 'bg-green-100 text-green-700' : null}`}>
+                            className={`flex gap-2 text-gray-700 md:text-[14px] text-[12px] px-5 p-4 cursor-pointer hover:bg-customHover hover:bg-opacity-30
+                                       ${selectedChapterId == chapter.id ? 'bg-green-100 font-semibold' : null}`}>
 
                             {activeIndex == index ? <PauseCircle height={25} width={25} /> :
                                 isChapterCompleted(chapter.chapterNumber) ?
@@ -42,7 +41,7 @@ function ChapterNav({ params, course, userCourse }) {
                 ))}
 
                 <Link href={'/view-course/' + course.id + '/test/'}>
-                    <div className="text-gray-500 md:text-[14px] text-[16px] px-5 p-4 cursor-pointer hover:bg-gray-100 line-clamp-2 flex items-center space-x-2">
+                    <div className="text-gray-700 md:text-[14px] text-[16px] px-5 p-4 cursor-pointer hover:bg-customHover hover:bg-opacity-30 line-clamp-2 flex items-center space-x-2">
                         <CheckCircle2 height={25} width={25} />
                         <span>结业考试</span>
                     </div>

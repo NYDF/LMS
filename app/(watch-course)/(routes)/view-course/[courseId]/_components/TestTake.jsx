@@ -89,7 +89,7 @@ export const TestTake = ({ course, userCourse }) => {
             disabled={!allQuestionsAnswered}
             style={{
               cursor: allQuestionsAnswered ? "pointer" : "not-allowed",
-              backgroundColor: allQuestionsAnswered ? "#4CAF50" : "#d3d3d3",
+              backgroundColor: allQuestionsAnswered ? "#1A7B5E" : "#d3d3d3",
               color: "#fff",
               border: "none",
               padding: "10px 20px",

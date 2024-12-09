@@ -99,14 +99,14 @@ export const ChapterContent = ({ userCourse, activePart, params }) => {
 
         <div className="flex justify-center mt-6 mb-2">
           {!isPartCompleted(chapterId, activePart.id) ?
-            <button className='bg-purple-500 text-white
+            <button className='bg-customBorder text-white
                 p-2 px-5 rounded-lg flex gap-2
-                hover:bg-purple-800'
+                hover:bg-customGreen'
               onClick={() => _markPartCompleted()}>
               <CircleChevronRight /> <h2>确认完成本章节</h2>
             </button>
             :
-            <button className='bg-green-500 text-white
+            <button className='bg-customGreen text-white
                 p-2 px-5 rounded-lg flex gap-2
                 cursor-not-allowed disabled'>
               <CheckCircle2 /> <h2>本章节已经完成</h2>

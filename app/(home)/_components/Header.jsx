@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
-import SearchBar from './../_components/SearchBar'
+import SearchBarOrTitle from './../_components/SearchBar'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation';
 import { AlignLeft } from 'lucide-react';
@@ -19,12 +19,14 @@ function Header({ toggleSideBar }) {
 
       <AlignLeft className='md:hidden' onClick={() => toggleSideBar(true)} />
 
-      <SearchBar />
+      <SearchBarOrTitle />
 
       {!user ?
         <button onClick={() => router.push('/sign-in')}>Login</button>
         :
-        <UserButton />}
+        <div className="scale-125">
+          <UserButton />
+        </div>}
     </div>
   )
 }

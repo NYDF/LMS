@@ -40,8 +40,8 @@ function PartNav({ course, userCourse, setActivePart, params }) {
           <div key={index}
             onClick={() => { setActiveIndex(index); setActivePart(part) }}
             className={`flex gap-2 text-gray-500 md:text-[14px] text-[12px]
-                        px-5 p-4 cursor-pointer hover:bg-gray-100
-            ${activeIndex == index ? 'bg-green-100 text-green-700' : null}`} >
+                        px-5 p-4 cursor-pointer hover:bg-customHover hover:bg-opacity-30
+            ${activeIndex == index ? 'bg-green-100 font-semibold' : null}`} >
             {isPartCompleted(chapterId, part.id) ? <Check /> : (<div style={{ width: '24px' }}></div>)}
             <h2 className='line-clamp-2'>{part.name}</h2>
           </div>

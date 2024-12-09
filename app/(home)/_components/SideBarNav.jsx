@@ -28,27 +28,30 @@ function SideBarNav({ toggleSideBar }) {
     return (
         <div className='h-full bg-white border-r flex flex-col overflow-y-auto shadow-md'>
 
-            <div className='p-5 border-b z-50'>
+            <div className='border-b z-50 p-5'>
                 <Link href='/'>
                     <Image src='/logo.png'
                         alt='logo'
-                        className='rounded-full'
-                        width={90}
+                        width={120}
                         height={90}
                         priority={true}
+                        className='rounded-full'
                     />
                 </Link>
             </div>
 
             <div className='flex flex-col '>
                 {menuList.map((item, index) => (
-                    <Link href={item.path} key={index} className={`flex gap-2 items-center
-                p-4 px-6 text-gray-500
-                hover:bg-gray-100 cursor-pointer
-                ${pathName == item.path ? 'bg-purple-50 text-purple-800' : null}`}
+                    <Link href={item.path} key={index}
+                        className='flex gap-2 items-center p-4 px-6 text-gray-700 hover:bg-customHover hover:bg-opacity-30 cursor-pointer'
                         onClick={() => { setActiveIndex(index); toggleSideBar(false) }}>
+
                         <item.icon />
-                        <h2>{item.name}</h2>
+
+                        <h2 className="text-xl">
+                            {item.name}
+                        </h2>
+
                     </Link>
                 ))}
             </div>

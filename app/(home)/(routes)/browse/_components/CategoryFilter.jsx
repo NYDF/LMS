@@ -28,8 +28,8 @@ function CategoryFilter({ selectedCategory }) {
                         selectedCategory(item.value)
                     }}
                     className={`border p-2 px-4 text-sm rounded-md
-                                hover:border-purple-800 font-semibold hover:bg-gray-50
-                                ${activeIndex == index ? 'border-purple-800 bg-purple-50 text-purple-800' : null}`}>
+                                hover:border-customHover font-semibold hover:bg-customHover hover:bg-opacity-30
+                                ${activeIndex == index ? 'border-customHover border-3 text-grey-800' : null}`}>
 
                     <h2>{item.name}</h2>
 

@@ -39,8 +39,8 @@ function TestPage({ params }) {
               <Image src='/logo.png'
                 alt='logo'
                 className='rounded-full'
-                width={100}
-                height={80}
+                width={240}
+                height={180}
                 priority={true}
               />
             </Link>
