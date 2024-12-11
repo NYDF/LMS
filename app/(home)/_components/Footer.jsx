@@ -20,6 +20,10 @@ function Footer() {
         </li>
 
         <li>
+          <a href="https://jwnycounseling.github.io/" className="hover:underline me-4 md:me-6">友情链接</a>
+        </li>
+
+        <li>
           <a href="#" class="hover:underline me-4 md:me-6">保密协议</a>
         </li>
 
