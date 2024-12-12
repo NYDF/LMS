@@ -6,6 +6,7 @@ import CourseList from './_components/CourseList'
 import { useUser } from '@clerk/nextjs'
 import Participants from './_components/Participants'
 import Trend from './_components/Trend'
+import HomeNumbers from './_components/HomeNumbers'
 
 function Browse() {
 
@@ -44,6 +45,7 @@ function Browse() {
       <CategoryFilter selectedCategory={(category) => filterCourse(category)} />
       {courses ? <CourseList courses={courses} /> : null}
       <Participants />
+      <HomeNumbers />
       <Trend />
     </div>
   )

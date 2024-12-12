@@ -41,7 +41,7 @@ function Participants() {
 
   return (
     <div className="bg-customHover bg-opacity-10 py-8 px-4 mt-5 rounded-lg">
-      <h1 className="text-2xl font-bold text-center mb-8">什么人群应该学习基于循证实践研究课程(EBPR)</h1>
+      <h1 className="text-2xl font-bold text-center mb-8">应该学习基于循证实践研究课程(EBPR)的群体</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
         {sections.map((section, index) => (
           <div

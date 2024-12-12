@@ -22,7 +22,7 @@ function Header({ toggleSideBar }) {
       <SearchBarOrTitle />
 
       {!user ?
-        <button onClick={() => router.push('/sign-in')}>Login</button>
+        <button onClick={() => router.push('/sign-in')}>登录</button>
         :
         <div className="scale-125">
           <UserButton />
