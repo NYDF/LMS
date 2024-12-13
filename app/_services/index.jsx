@@ -55,11 +55,11 @@ export const getCourseById = async (id, userEmail) => {
         video {
           url
         }
-        chapter {
+        chapter (first: 20) {
           ... on Chapter {
             id
             name
-            allParts {
+            allParts (first: 20) {
               ... on Part {
                 id
                 name
@@ -96,7 +96,7 @@ export const getCourseById = async (id, userEmail) => {
           userEmail
           examResult
           id
-          completedChapter {
+          completedChapter (first: 100) {
             ... on CompletedChapter {
               id
               chapterId
@@ -229,7 +229,7 @@ export const submitTestRes = async (courseRecordId, answersToTest) => {
           }
         }
       }
-        
+
     }
   `;
 

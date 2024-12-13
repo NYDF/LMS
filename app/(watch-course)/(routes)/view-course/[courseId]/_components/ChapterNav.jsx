@@ -1,4 +1,4 @@
-import { CheckCircle2, PauseCircle, PlayCircle } from 'lucide-react'
+import { CheckCircle2, CircleChevronRight, CircleArrowRight, CircleCheckBig } from 'lucide-react'
 import React, { useContext, useState } from 'react'
 import Link from 'next/link'
 import { CompletedChapterContext } from '../../../../../_context/CompletedChapterContext';
@@ -9,10 +9,22 @@ function ChapterNav({ params, course, userCourse }) {
 
     const { completedChapter, setCompletedChapter } = useContext(CompletedChapterContext)
 
-    // console.log('ChapterNav~~~~~~~~~~~~~~~~~~~', course)
+    console.log('ChapterNav~~~~~~~~~~~~~~~~~~~completedChapter', completedChapter)
+    console.log('ChapterNav~~~~~~~~~~~~~~~~~~~course', course)
 
-    const isChapterCompleted = (chapterId) => {
-        return completedChapter?.find(item => item.chapterId == chapterId)
+    const isChapterCompleted = (chapter) => {
+
+        if (!chapter?.allParts || chapter.allParts.length === 0) {
+            return false; // Consider incomplete if no parts exist
+        }
+
+        // Count completed parts for this chapter
+        const completedChapterNum = chapter.allParts.filter(part =>
+            completedChapter.some(completed => completed.partId === part.id)
+        ).length;
+
+        // Check if all parts are completed
+        return completedChapterNum === chapter.allParts.length;
     }
 
     const selectedChapterId = params.chapterId
@@ -31,9 +43,8 @@ function ChapterNav({ params, course, userCourse }) {
                             className={`flex gap-2 text-gray-700 md:text-[14px] text-[12px] px-5 p-4 cursor-pointer hover:bg-customHover hover:bg-opacity-30
                                        ${selectedChapterId == chapter.id ? 'bg-green-100 font-semibold' : null}`}>
 
-                            {activeIndex == index ? <PauseCircle height={25} width={25} /> :
-                                isChapterCompleted(chapter.chapterNumber) ?
-                                    <CheckCircle2 height={25} width={25} /> : <PlayCircle height={25} width={25} />}
+                            {isChapterCompleted(chapter) ?
+                                <CircleCheckBig height={25} width={25} /> : (<div style={{ width: '24px' }}></div>)}
 
                             <h2 className='line-clamp-2'>{chapter.name}</h2>
                         </div>
