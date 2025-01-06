@@ -1,6 +1,4 @@
 
-import { CheckCircle2, CircleX } from 'lucide-react';
-import { useState } from "react";
 import { TestResult } from './TestResult';
 import { TestTake } from './TestTake';
 

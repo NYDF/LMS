@@ -17,7 +17,7 @@ export const TestTake = ({ course, userCourse }) => {
   }, [course.exam]);
 
   const allQuestionsAnswered = answers.every((answer) => answer !== null);
-  console.log('TestTake========answers', answers)
+  // console.log('TestTake========answers', answers)
 
   const handleAnswerChange = (questionIndex, choiceId) => {
     setAnswers((prevAnswers) => {

@@ -1,4 +1,4 @@
-import { CheckCircle2, CircleChevronRight, CircleArrowRight, CircleCheckBig } from 'lucide-react'
+import { CircleChevronRight, CircleCheckBig } from 'lucide-react'
 import React, { useContext, useState } from 'react'
 import Link from 'next/link'
 import { CompletedChapterContext } from '../../../../../_context/CompletedChapterContext';
@@ -51,9 +51,11 @@ function ChapterNav({ params, course, userCourse }) {
                     </Link>
                 ))}
 
+                <hr className="border-t border-gray-300 mx-5 my-4" />
+
                 <Link href={'/view-course/' + course.id + '/test/'}>
                     <div className="text-gray-700 md:text-[14px] text-[16px] px-5 p-4 cursor-pointer hover:bg-customHover hover:bg-opacity-30 line-clamp-2 flex items-center space-x-2">
-                        <CheckCircle2 height={25} width={25} />
+                        <CircleChevronRight height={25} width={25} />
                         <span>结业考试</span>
                     </div>
                 </Link>
