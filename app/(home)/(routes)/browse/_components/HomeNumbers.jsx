@@ -1,7 +1,7 @@
 import React from 'react';
+import Image from 'next/image'
 
 const HomeNumbers = () => {
-
 
   const stats = [
     {
@@ -19,21 +19,36 @@ const HomeNumbers = () => {
   ];
 
   return (
-<div className="py-4 px-2 mb-4 sm:py-6 sm:px-3 md:py-6 md:px-4">
+    <div>
+      <div className="py-4 px-2 mb-4 sm:py-6 sm:px-3 md:py-6 md:px-4">
 
-<div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
-  {stats.map((stat, index) => (
-    <div
-      key={index}
-      className={`px-8 sm:px-12 md:px-14 lg:px-16 text-center ${index < stats.length - 1 ? 'md:border-r-2 border-gray-300 pb-4 md:pb-6' : ''}`}
-    >
-      <div className="text-4xl md:text-5xl font-bold text-customBorder mb-6 md:mb-6">{stat.number}</div>
-      <p className="text-gray-700 text-sm md:text-base">{stat.description}</p>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className={`px-8 sm:px-12 md:px-14 lg:px-16 text-center ${index < stats.length - 1 ? 'md:border-r-2 border-gray-300 pb-4 md:pb-6' : ''}`}
+            >
+              <div className="text-4xl md:text-5xl font-bold text-customBorder mb-6 md:mb-6">{stat.number}</div>
+              <p className="text-gray-700 text-sm md:text-base">{stat.description}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <div className='rounded-lg'>
+        <Image
+          src='/familysunset.jpg'
+          alt='familysunset'
+          className='rounded-lg'
+          layout='responsive'
+          width={1920}
+          height={320}
+          priority={true}
+        />
+
+      </div>
     </div>
-  ))}
-</div>
-
-</div>
   );
 };
 

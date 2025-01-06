@@ -9,8 +9,8 @@ function ChapterNav({ params, course, userCourse }) {
 
     const { completedChapter, setCompletedChapter } = useContext(CompletedChapterContext)
 
-    console.log('ChapterNav~~~~~~~~~~~~~~~~~~~completedChapter', completedChapter)
-    console.log('ChapterNav~~~~~~~~~~~~~~~~~~~course', course)
+    // console.log('ChapterNav~~~~~~~~~~~~~~~~~~~completedChapter', completedChapter)
+    // console.log('ChapterNav~~~~~~~~~~~~~~~~~~~course', course)
 
     const isChapterCompleted = (chapter) => {
 
