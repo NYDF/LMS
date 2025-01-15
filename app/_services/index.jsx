@@ -72,7 +72,7 @@ export const getCourseById = async (id, userEmail) => {
         }
         id
         author
-        exam (first: 20) {
+        exam (first: 100) {
           ... on Exam {
             id
             choice {
